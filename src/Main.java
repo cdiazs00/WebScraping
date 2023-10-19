@@ -6,17 +6,28 @@ public class Main {
     public static void main(String[] args) throws Exception {
         File inputCSV = new File("src/Pájaros.csv");
         File outputCSV = new File("src/Pruebas.csv");
-        File input
+        File inputXML = new File("src/Pájaros.xml");
+        File outputXML = new File("src/Pruebas.xml");
 
-        Scanner scanner = new Scanner(inputCSV);
-        FileWriter writer = new FileWriter(outputCSV);
+        Scanner scannerCSV = new Scanner(inputCSV);
+        FileWriter writerCSV = new FileWriter(outputCSV);
+        Scanner scannerXML = new Scanner(inputXML);
+        FileWriter writerXML = new FileWriter(outputXML);
 
-        while(scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            writer.write(line + "\n");
-            System.out.println("Nombre " + line);
+        while(scannerCSV.hasNextLine()) {
+            String csvLine = scannerCSV.nextLine();
+            writerCSV.write(csvLine + "\n");
+            System.out.println(csvLine);
         }
-        scanner.close();
-        writer.close();
+        while(scannerXML.hasNextLine()) {
+            String xmlLine = scannerXML.nextLine();
+            writerXML.write(xmlLine + "\n");
+            System.out.println(xmlLine);
+        }
+
+        scannerCSV.close();
+        writerCSV.close();
+        scannerXML.close();
+        writerXML.close();
     }
 }
